@@ -1,0 +1,29 @@
+{
+    "name": "content-layout-transition",
+    "version": "1.0.0",
+    "description": "A layout that animates from an initial stack view to a content view with larger images that can be navigated",
+    "main": "index.js",
+    "scripts": {
+        "dev": "next dev -H 0.0.0.0",
+        "build": "next build",
+        "prettier": "prettier -write .",
+        "lint": "next lint"
+    },
+    "keywords": [],
+    "author": "Duy Le",
+    "license": "MIT",
+    "dependencies": {
+        "@chakra-ui/react": "^2.3.0",
+        "@emotion/react": "^11.10.0",
+        "@emotion/styled": "^11.10.0",
+        "framer-motion": "^7.2.1",
+        "next": "^12.2.5",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    },
+    "devDependencies": {
+        "eslint": "^8.23.0",
+        "eslint-config-next": "^12.2.5",
+        "prettier": "^2.7.1"
+    }
+}
