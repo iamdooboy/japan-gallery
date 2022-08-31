@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import Stack from './stack'
 
-const stackWrap = ({ images }) => {
+const stackWrap = () => {
   return (
     <div className="stack-wrap">
-      <Stack images={images} />
+      <Stack />
     </div>
   )
 }

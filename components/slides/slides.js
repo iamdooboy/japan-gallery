@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { StackItemContext } from '../../pages'
+import Stack from '../stack/stack'
 
 const slides = () => {
-  return <div className="slides"></div>
+  const { itemSelected } = useContext(StackItemContext)
+  return <div className="slides">{itemSelected && <Stack />}</div>
 }
 
 export default slides

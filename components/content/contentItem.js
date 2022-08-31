@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { StackItemContext } from '../../pages'
 
-const contentItem = ({ title1, title2, whenAndWhere, description }) => {
+const contentItem = ({ id, title1, title2, whenAndWhere, description }) => {
+  const { itemSelected } = useContext(StackItemContext)
+  const currentItem = itemSelected.id === id ? ' content__item--current' : ''
   return (
     <>
-      <div className="content__item">
+      <div className={`content__item${currentItem}`}>
         <h2 className="content__item-title">
           <span className="oh">
             <span className="oh__inner">{title1}</span>

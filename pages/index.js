@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, createContext } from 'react'
 import Frame from '../components/frame/frame'
 import Content from '../components/content/content'
 import Slides from '../components/slides/slides'
@@ -6,8 +6,13 @@ import Stack from '../components/stack/stackWrap'
 import Title from '../components/title/title'
 import { images } from '../components/images/images'
 
+export const StackItemContext = createContext({})
+export const ImagesContext = createContext([])
+
 const Page = () => {
   const [imgsLoaded, setImgsLoaded] = useState(false)
+  const [itemSelected, setItemSelected] = useState('')
+  const [stackItemClicked, setStackItemClicked] = useState(false)
 
   useEffect(() => {
     document.querySelector('body').classList.add('demo-1')
@@ -36,11 +41,22 @@ const Page = () => {
 
   return (
     <>
-      <Frame />
-      <Content />
-      <Slides />
-      <Stack images={images} />
-      <Title />
+      <StackItemContext.Provider
+        value={{
+          stackItemClicked,
+          setStackItemClicked,
+          itemSelected,
+          setItemSelected
+        }}
+      >
+        <ImagesContext.Provider value={images}>
+          <Frame />
+          <Content stackItemClicked={stackItemClicked} />
+          <Slides />
+          <Stack images={images} />
+          <Title />
+        </ImagesContext.Provider>
+      </StackItemContext.Provider>
     </>
   )
 }
