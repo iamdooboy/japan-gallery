@@ -1,14 +1,35 @@
 import React from 'react'
+import { motion } from 'framer-motion'
+import { useContext } from 'react'
+import { StackItemContext, AnimatePresence } from '../../pages'
 
 const title = () => {
+  const { stackItemClicked } = useContext(StackItemContext)
+
   return (
     <div className="title">
-      <h2 className="title__main oh">
+      <motion.h2
+        className="title__main oh"
+        initial={{ opacity: 1, y: 0 }}
+        animate={{
+          opacity: stackItemClicked ? 0 : 1,
+          y: stackItemClicked ? '-101%' : 0,
+          transition: { duration: 0.9 }
+        }}
+      >
         <span className="oh__inner">Photography</span>
-      </h2>
-      <span className="title__sub oh">
+      </motion.h2>
+      <motion.span
+        className="title__sub oh"
+        initial={{ opacity: 1, y: 0 }}
+        animate={{
+          opacity: stackItemClicked ? 0 : 1,
+          y: stackItemClicked ? '-101%' : 0,
+          transition: { duration: 0.9 }
+        }}
+      >
         <span className="oh__inner">1986 &mdash; 2022</span>
-      </span>
+      </motion.span>
     </div>
   )
 }

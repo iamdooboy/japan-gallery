@@ -1,5 +1,5 @@
 import React from 'react'
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { StackItemContext } from '../../pages'
 
 const stackItem = ({ img }) => {

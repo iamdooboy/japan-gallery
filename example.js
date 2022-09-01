@@ -80,24 +80,24 @@ export class Slideshow {
    * Event binding.
    */
   initEvents() {
-    this.DOM.items.forEach((item, position) => {
-      // Clicking on a stack item reveals the slideshow navigation and the item's content
-      item.addEventListener('click', () => {
-        // Show the item's content
-        this.open(item)
-      })
-    })
+    // this.DOM.items.forEach((item, position) => {
+    //   // Clicking on a stack item reveals the slideshow navigation and the item's content
+    //   item.addEventListener('click', () => {
+    //     // Show the item's content
+    //     this.open(item)
+    //   })
+    // })
 
-    this.DOM.backCtrl.addEventListener('click', () => {
-      this.close()
-    })
+    // this.DOM.backCtrl.addEventListener('click', () => {
+    //   this.close()
+    // })
 
-    this.DOM.navArrows.next.addEventListener('click', () => {
-      this.navigate('next')
-    })
-    this.DOM.navArrows.prev.addEventListener('click', () => {
-      this.navigate('prev')
-    })
+    // this.DOM.navArrows.next.addEventListener('click', () => {
+    //   this.navigate('next')
+    // })
+    // this.DOM.navArrows.prev.addEventListener('click', () => {
+    //   this.navigate('prev')
+    // })
 
     // Trigger the close() on scroll by using the gsap observer plugin
     const scrollFn = () => {
@@ -229,9 +229,9 @@ export class Slideshow {
 
     this.scrollObserver.disable()
 
-    this.DOM.items[this.current].classList.remove('stack__item--current')
+    //this.DOM.items[this.current].classList.remove('stack__item--current')
 
-    body.classList.remove('oh')
+    //body.classList.remove('oh')
 
     const state = Flip.getState(this.DOM.items, { props: 'opacity' })
     this.DOM.stackWrap.appendChild(this.DOM.el)
@@ -245,10 +245,10 @@ export class Slideshow {
       duration: 1,
       ease: 'expo',
       onComplete: () => {
-        this.DOM.content.classList.remove('content--open')
-        this.contentItems[this.current].DOM.el.classList.remove(
-          'content__item--current'
-        )
+        //this.DOM.content.classList.remove('content--open')
+        // this.contentItems[this.current].DOM.el.classList.remove(
+        //   'content__item--current'
+        // )
 
         this.current = -1
         this.isOpen = false
@@ -281,7 +281,7 @@ export class Slideshow {
           duration: 1,
           ease: 'expo',
           opacity: 0
-        },
+        }, ////////////////////////////////////////////
         0
       )
       .to(
@@ -300,21 +300,21 @@ export class Slideshow {
    * @param {String} direction 'prev' || 'next'
    */
   navigate(direction) {
-    if (
-      this.isAnimating ||
-      (direction === 'next' && this.current === this.totalItems - 1) ||
-      (direction === 'prev' && this.current === 0)
-    )
-      return
+    // if (
+    //   this.isAnimating ||
+    //   (direction === 'next' && this.current === this.totalItems - 1) ||
+    //   (direction === 'prev' && this.current === 0) //edge cases
+    // )
+    //   return
     this.isAnimating = true
 
-    const previousCurrent = this.current
-    const currentItem = this.DOM.items[previousCurrent]
-    this.current = direction === 'next' ? this.current + 1 : this.current - 1
-    const upcomingItem = this.DOM.items[this.current]
+    // const previousCurrent = this.current //index
+    // const currentItem = this.DOM.items[previousCurrent] //element
+    // this.current = direction === 'next' ? this.current + 1 : this.current - 1
+    // const upcomingItem = this.DOM.items[this.current]
 
-    currentItem.classList.remove('stack__item--current')
-    upcomingItem.classList.add('stack__item--current')
+    // currentItem.classList.remove('stack__item--current')
+    // upcomingItem.classList.add('stack__item--current')
 
     // show/hide arrows
     gsap.set(this.DOM.navArrows.prev, { opacity: this.current > 0 ? 1 : 0 })

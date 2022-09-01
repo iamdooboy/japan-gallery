@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useContext } from 'react'
 import Stack from './stack'
+import { StackItemContext } from '../../pages'
 
 const stackWrap = () => {
+  const { stackItemClicked } = useContext(StackItemContext)
   return (
     <div className="stack-wrap">
-      <Stack />
+      {!stackItemClicked && <Stack />}
     </div>
   )
 }
