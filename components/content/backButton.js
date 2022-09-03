@@ -3,12 +3,14 @@ import { StackItemContext } from '../../pages'
 import { motion } from 'framer-motion'
 
 const backButton = () => {
-  const { setItemSelected, stackItemClicked, setStackItemClicked } =
+  const { setItemSelected, stackItemClicked, setStackItemClicked, setScaleY } =
     useContext(StackItemContext)
 
   const onClickHandler = () => {
     document.querySelector('body').classList.remove('oh')
     setStackItemClicked(false)
+    setItemSelected('')
+    setScaleY(0)
   }
 
   const variants = {
@@ -16,22 +18,22 @@ const backButton = () => {
       opacity: stackItemClicked ? 1 : 0,
       x: stackItemClicked ? 50 : 0,
       transition: {
-        duration: 1
+        duration: 0.5
       }
     },
     hidden: {
       opacity: 0,
       x: 0,
       transition: {
-        duration: 1
+        duration: 0.5
       }
     }
   }
 
   const onCompleteHandler = () => {
-    if (!stackItemClicked) {
-      setItemSelected('')
-    }
+    // if (!stackItemClicked) {
+    //   setItemSelected('')
+    // }
   }
 
   return (

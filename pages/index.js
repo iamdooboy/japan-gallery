@@ -5,6 +5,7 @@ import Slides from '../components/slides/slides'
 import Stack from '../components/stack/stackWrap'
 import Title from '../components/title/title'
 import { images } from '../components/images/images'
+import { useWindowSize } from '../hooks/useWindowSize'
 
 export const StackItemContext = createContext({})
 export const ImagesContext = createContext([])
@@ -13,6 +14,10 @@ const Page = () => {
   const [imgsLoaded, setImgsLoaded] = useState(false)
   const [itemSelected, setItemSelected] = useState('')
   const [stackItemClicked, setStackItemClicked] = useState(false)
+  const [scaleY, setScaleY] = useState(-264)
+  const [offsetTop, setOffsetTop] = useState(undefined)
+  const [offsetHeight, setOffsetHeight] = useState(undefined)
+  const winsize = useWindowSize()
 
   useEffect(() => {
     document.querySelector('body').classList.add('demo-1')
@@ -46,7 +51,14 @@ const Page = () => {
           stackItemClicked,
           setStackItemClicked,
           itemSelected,
-          setItemSelected
+          setItemSelected,
+          scaleY,
+          setScaleY,
+          offsetTop,
+          setOffsetTop,
+          offsetHeight,
+          setOffsetHeight,
+          winsize
         }}
       >
         <ImagesContext.Provider value={images}>

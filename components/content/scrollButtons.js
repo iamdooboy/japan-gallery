@@ -2,12 +2,16 @@ import { useContext } from 'react'
 import { StackItemContext } from '../../pages'
 import { images } from '../images/images'
 import { motion, useMotionValue } from 'framer-motion'
+import { useWindowSize } from '../../hooks/useWindowSize'
 
 const scrollButtons = () => {
-  const { itemSelected, setItemSelected, stackItemClicked } =
+  const { itemSelected, setItemSelected, stackItemClicked, scaleY, setScaleY } =
     useContext(StackItemContext)
 
+  const size = useWindowSize()
+
   const navigate = direction => {
+    setScaleY(scaleY + -264)
     let currentIndex = images.indexOf(itemSelected)
 
     if (

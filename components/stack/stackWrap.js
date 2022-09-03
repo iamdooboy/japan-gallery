@@ -4,11 +4,7 @@ import { StackItemContext } from '../../pages'
 
 const stackWrap = () => {
   const { stackItemClicked } = useContext(StackItemContext)
-  return (
-    <div className="stack-wrap">
-      {!stackItemClicked && <Stack />}
-    </div>
-  )
+  return <div className="stack-wrap">{!stackItemClicked && <Stack />}</div>
 }
 
 export default stackWrap
