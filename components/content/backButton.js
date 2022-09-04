@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { StackItemContext } from '../../pages'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const backButton = () => {
   const { setItemSelected, stackItemClicked, setStackItemClicked, setScaleY } =
@@ -16,24 +16,18 @@ const backButton = () => {
   const variants = {
     visible: {
       opacity: stackItemClicked ? 1 : 0,
-      x: stackItemClicked ? 50 : 0,
+      x: stackItemClicked ? 0 : -25,
       transition: {
         duration: 0.5
       }
     },
     hidden: {
       opacity: 0,
-      x: 0,
+      x: -25,
       transition: {
         duration: 0.5
       }
     }
-  }
-
-  const onCompleteHandler = () => {
-    // if (!stackItemClicked) {
-    //   setItemSelected('')
-    // }
   }
 
   return (
@@ -43,7 +37,6 @@ const backButton = () => {
       variants={variants}
       initial="hidden"
       animate="visible"
-      onAnimationComplete={onCompleteHandler}
     >
       <svg
         aria-hidden="true"

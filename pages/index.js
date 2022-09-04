@@ -14,10 +14,11 @@ const Page = () => {
   const [imgsLoaded, setImgsLoaded] = useState(false)
   const [itemSelected, setItemSelected] = useState('')
   const [stackItemClicked, setStackItemClicked] = useState(false)
-  const [scaleY, setScaleY] = useState(-264)
+  const [scaleY, setScaleY] = useState()
   const [offsetTop, setOffsetTop] = useState(undefined)
   const [offsetHeight, setOffsetHeight] = useState(undefined)
   const winsize = useWindowSize()
+  const [[page, direction], setPage] = useState([0, 0])
 
   useEffect(() => {
     document.querySelector('body').classList.add('demo-1')
@@ -58,7 +59,10 @@ const Page = () => {
           setOffsetTop,
           offsetHeight,
           setOffsetHeight,
-          winsize
+          winsize,
+          direction,
+          setPage,
+          page
         }}
       >
         <ImagesContext.Provider value={images}>

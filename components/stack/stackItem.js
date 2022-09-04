@@ -14,7 +14,10 @@ const stackItem = ({ img }) => {
     setOffsetTop,
     setOffsetHeight,
     scaleY,
-    winsize
+    winsize,
+    page,
+    direction,
+    setPage
   } = useContext(StackItemContext)
 
   const ref = useRef(null)
@@ -22,7 +25,6 @@ const stackItem = ({ img }) => {
   useEffect(() => {
     if (stackItemClicked && itemSelected.id === img.id) {
       const itemCenter = ref.current.offsetTop + ref.current.offsetHeight / 2
-      console.log(ref.current.offsetHeight)
       setScaleY(winsize.height / 2 - itemCenter + winsize.scrollY)
     }
   }, [stackItemClicked])
@@ -31,8 +33,10 @@ const stackItem = ({ img }) => {
 
   const onClickHandler = e => {
     document.querySelector('body').classList.add('oh')
+    setPage([page + 1, 1])
     setStackItemClicked(true)
     setItemSelected(img)
+    document.documentElement.scrollTop = document.body.scrollTop = 0
   }
   return (
     <motion.div

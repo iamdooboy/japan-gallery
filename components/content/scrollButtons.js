@@ -5,20 +5,34 @@ import { motion, useMotionValue } from 'framer-motion'
 import { useWindowSize } from '../../hooks/useWindowSize'
 
 const scrollButtons = () => {
-  const { itemSelected, setItemSelected, stackItemClicked, scaleY, setScaleY } =
-    useContext(StackItemContext)
+  const {
+    itemSelected,
+    setItemSelected,
+    stackItemClicked,
+    scaleY,
+    setScaleY,
+    winsize,
+    setPage,
+    page
+  } = useContext(StackItemContext)
 
-  const size = useWindowSize()
+  let currentIndex = images.indexOf(itemSelected)
 
   const navigate = direction => {
-    setScaleY(scaleY + -264)
-    let currentIndex = images.indexOf(itemSelected)
-
     if (
       (direction === 'next' && currentIndex === images.length - 1) ||
       (direction === 'prev' && currentIndex === 0) //edge cases
     ) {
       return
+    }
+
+    const scrollOffset = winsize.height / 2 + winsize.height * 0.02
+    if (direction === 'next') {
+      setPage([page + 1, 1])
+      setScaleY(scaleY - scrollOffset)
+    } else {
+      setPage([page + -1, -1])
+      setScaleY(scaleY + scrollOffset)
     }
 
     currentIndex = direction === 'next' ? currentIndex + 1 : currentIndex - 1
@@ -28,7 +42,8 @@ const scrollButtons = () => {
 
   const nextVariant = {
     visible: {
-      opacity: stackItemClicked ? 1 : 0,
+      opacity: stackItemClicked && currentIndex < images.length - 1 ? 1 : 0,
+      cursor: currentIndex < images.length - 1 ? 'pointer' : 'default',
       y: stackItemClicked ? 0 : 150,
       transition: {
         duration: 1
@@ -46,7 +61,8 @@ const scrollButtons = () => {
 
   const prevVariant = {
     visible: {
-      opacity: stackItemClicked ? 1 : 0,
+      opacity: stackItemClicked && currentIndex > 0 ? 1 : 0,
+      cursor: currentIndex > 0 ? 'pointer' : 'default',
       y: stackItemClicked ? 0 : -150,
       transition: {
         duration: 1

@@ -15,12 +15,6 @@ const stack = () => {
   } = useContext(StackItemContext)
   const images = useContext(ImagesContext)
 
-  // if (itemSelected) {
-  //   const winsize = useWindowSize()
-  //   const itemCenter = offsetTop + offsetHeight / 2
-  //   setScaleY(winsize.height / 2 - itemCenter + winsize.scrollY)
-  // }
-
   const variants = {
     initial: {
       opacity: 1,
