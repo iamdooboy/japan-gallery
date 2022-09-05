@@ -1,5 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { useContext } from 'react'
+import React, { useRef, useEffect, useContext } from 'react'
 import { StackItemContext } from '../../pages'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useWindowSize } from '../../hooks/useWindowSize'

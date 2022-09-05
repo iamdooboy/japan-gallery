@@ -2,91 +2,130 @@ export const images = [
   {
     id: 0,
     url: '1.jpg',
-    title1: 'Queen of',
-    title2: 'the Sea',
-    whenAndWhere: 'Osaka, 1986',
+    title1: 'Shibuya',
+    title2: 'Crossing',
+    whenAndWhere: 'Tokyo, 2020',
+    photographer: 'Louie Nicolo Nimor',
+    photographerUrl:
+      'https://unsplash.com/es/@nicolonimor?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
+    photoUrl: 'https://unsplash.com/es/fotos/0BExqfEtp6A',
     description:
-      'Hidesato felt very sorry for the Dragon King on hearing his story, and readily promised to do what he could to help him.'
+      'The sprawling scramble intersection just outside Shibuya Station is an embodiment of Tokyo itself: action in all directions.'
   },
   {
     id: 1,
     url: '2.jpg',
-    title1: "Hinata's",
-    title2: 'Trouble',
-    whenAndWhere: 'Kyoto, 1986',
+    title1: 'Tennoji',
+    title2: 'Park',
+    whenAndWhere: 'Osaka, 2020',
+    photographer: 'Paul Cuoco',
+    photographerUrl:
+      'https://unsplash.com/@notafraid?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
+    photoUrl: 'https://unsplash.com/photos/avFGux4LDMc',
     description:
-      'His power was immense, for he was the ruler of all sea creatures both great and small, and in his keeping were the Jewels of the Ebb and Flow of the Tide.'
+      'A place to reflect by quiet ponds, see some stunning art or engage with historical landmarks.'
   },
   {
     id: 2,
     url: '3.jpg',
-    title1: "Dragon's",
-    title2: 'Journey',
-    whenAndWhere: 'Nagoya, 1986',
+    title1: 'Hanamikoji',
+    title2: 'Street',
+    whenAndWhere: 'Kyoto, 2020',
+    photographer: 'Jay',
+    photographerUrl:
+      'https://unsplash.com/@jmanalog?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
+    photoUrl: 'https://unsplash.com/photos/tZI6nYEwWag',
     description:
-      'Calling all his fish retainers together, he chose several of them as ambassadors to go through the sea and seek for a young Dragon Princess who would be his bride.'
+      'This historic area hearkens back to the Japan of yesteryear, with its traditional wooden merchant houses and quaint ochaya, or teahouses.'
   },
   {
     id: 3,
     url: '4.jpg',
-    title1: 'Prince',
-    title2: 'Yamato',
-    whenAndWhere: 'Tokyo, 1986',
+    title1: 'Sapporo',
+    title2: 'Station',
+    whenAndWhere: 'Sapporo, 2019',
+    photographer: 'Yeoul Shin',
+    photographerUrl:
+      'https://unsplash.com/@sosoalso?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
+    photoUrl: 'https://unsplash.com/photos/abDXwdctAI4',
     description:
-      'The King fell in love with her at once, and the wedding ceremony was celebrated with great splendor.'
+      'The main train station for Hokkaido’s capital city. It is a central travel hub for many travelers to Hokkaido.'
   },
   {
     id: 4,
     url: '5.jpg',
-    title1: 'Kumaso',
-    title2: 'Haru',
-    whenAndWhere: 'Sapporo, 1986',
+    title1: 'Cherry',
+    title2: 'Blossom',
+    whenAndWhere: 'Fukuoka, 2019',
+    photographer: 'Akihiko Sayo',
+    photographerUrl:
+      'https://unsplash.com/@aki34?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
+    photoUrl: 'https://unsplash.com/photos/zno8Yyobd30',
     description:
-      'When the hare heard these kind words he felt very grateful to the man, and encouraged by his gentle manner the hare told him all that had befallen him.'
+      'Go for a stroll along the cherry blossom-lined river or enjoy a riverside bento lunch under the canopy of cherry blossoms'
   },
   {
     id: 5,
     url: '6.jpg',
-    title1: "Botan's",
-    title2: 'Dream',
-    whenAndWhere: 'Sendai, 1986',
-    description:
-      'Okuni-nushi-no-Mikoto is worshiped by the people in some parts of Japan, as a god, and the hare has become famous as “The White Hare of Inaba”.'
+    title1: 'Minato',
+    title2: 'Mirai',
+    whenAndWhere: 'Yokohama, 2020',
+    photographer: 'Takashi Kato',
+    photographerUrl:
+      'https://unsplash.com/@k0a8t1o6?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
+    photoUrl: 'https://unsplash.com/photos/Vk1Jd1ghpTI',
+    description: 'The energetic heart of a modern international port city'
   },
   {
     id: 6,
     url: '7.jpg',
-    title1: 'The Gate',
-    title2: 'of Rashoi',
-    whenAndWhere: 'Kyoto, 1986',
+    title1: 'Chinatown',
+    title2: 'District',
+    whenAndWhere: 'Kobe, 2021',
+    photographer: 'Kevin Pierson',
+    photographerUrl:
+      'https://unsplash.com/@explorebeyondlimit?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
+    photoUrl: 'https://unsplash.com/photos/ktPxEmq1PbE',
     description:
-      'Nearly two thousand years ago this sword was kept at the shrines of Ite, the temples dedicated to the worship of Amaterasu, the great and beautiful Sun Goddess from whom the Japanese Emperors are said to be descended.'
+      'The area was developed by Chinese merchants who settled near Kobe Port after the port was opened to foreign trade in 1868.'
   },
   {
     id: 7,
     url: '8.jpg',
-    title1: 'Faithful',
-    title2: 'Knights',
-    whenAndWhere: 'Kobe, 1986',
+    title1: 'Itsukushima',
+    title2: 'Shrine',
+    whenAndWhere: 'Hiroshima, 2020',
+    photographer: 'Bing Hui Yau',
+    photographerUrl:
+      'https://unsplash.com/@yaubinghui?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
+    photoUrl: 'https://unsplash.com/photos/y85Tir86Q34',
     description:
-      'At last King Keiko ordered his younger son Prince Yamato to subdue the brigands and, if possible, to rid the land of their evil lives.'
+      'The shrine complex is made up of 56 wooden structures which are all built on pillars and so stand above the water.'
   },
   {
     id: 8,
     url: '9.jpg',
-    title1: 'Five Colors',
-    title2: '',
-    whenAndWhere: 'Hiroshima, 1986',
+    title1: 'Nagoya',
+    title2: 'Castle',
+    whenAndWhere: 'Nagoya, 2021',
+    photographer: 'Aryan Athalye',
+    photographerUrl:
+      'https://unsplash.com/@ary_heic?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
+    photoUrl: 'https://unsplash.com/photos/ZUrKKvV1PaM',
     description:
-      'There is a story of knightly adventure and daring which explains why the name of the sword was changed from that of Murakumo to Kasanagi, which means grass clearing.'
+      "Nagoya Castle was Japan's first castle to be designated a National Treasure. Even after wartime air raid destruction, it was deemed historically important enough to be designated a National Historic Site."
   },
   {
     id: 9,
     url: '10.jpg',
-    title1: "Shikuyu's",
-    title2: 'Charm',
-    whenAndWhere: 'Kumamoto, 1986',
+    title1: 'Nara',
+    title2: 'Park',
+    whenAndWhere: 'Nara, 2019',
+    photographer: 'Timo Volz',
+    photographerUrl:
+      'https://unsplash.com/@magict1911?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
+    photoUrl: 'https://unsplash.com/photos/tEOhkLuqmUI',
     description:
-      'He at once made ready to start, and great was the stir in the precincts of the Palace as he and his trusty followers gathered together and prepared for the expedition, and polished up their armor and donned it.'
+      "Considered the messengers of the gods, Nara's over 1000 deer have become a symbol of the city and have even been designated as a natural treasure."
   }
 ]

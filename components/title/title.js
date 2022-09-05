@@ -28,7 +28,7 @@ const title = () => {
           transition: { duration: 0.9 }
         }}
       >
-        <span className="oh__inner">1986 &mdash; 2022</span>
+        <span className="oh__inner">2019 &mdash; 2021</span>
       </motion.span>
     </div>
   )

@@ -1,33 +1,43 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ImagesContext } from '../../pages'
+import { StackItemContext } from '../../pages'
 import Logo from '../logo/logo'
+import FrameContent from './frameContent'
 
 const frame = () => {
+  const images = useContext(ImagesContext)
+
+  const {
+    itemSelected,
+    setItemSelected,
+    setStackItemClicked,
+    stackItemClicked,
+    setScaleY,
+    setOffsetTop,
+    setOffsetHeight,
+    scaleY,
+    winsize,
+    page,
+    direction,
+    setPage
+  } = useContext(StackItemContext)
+
   return (
     <div className="frame">
       <div className="frame__title">
-        <h1 className="frame__title-main">
-          Stack to Content Layout Transition
-        </h1>
-        <a
-          aria-label="Back to the article"
-          className="frame__title-back"
-          href="https://tympanus.net/codrops/?p=63558"
-        >
-          <span className="oh__inner">Back to the article</span>
-          <svg width="18px" height="18px" viewBox="0 0 24 24">
-            <path
-              fillRule="evenodd"
-              d="M18.25 15.5a.75.75 0 00.75-.75v-9a.75.75 0 00-.75-.75h-9a.75.75 0 000 1.5h7.19L6.22 16.72a.75.75 0 101.06 1.06L17.5 7.56v7.19c0 .414.336.75.75.75z"
-            />
-          </svg>
-        </a>
-        <br />
-        <a
-          className="frame__title-prev"
-          href="https://tympanus.net/Development/IntroTrailEffect/"
-        >
-          Previous demo
-        </a>
+        {stackItemClicked ? (
+          <FrameContent
+            key={itemSelected.id}
+            photographer={`Photo by ${itemSelected.photographer}`}
+            photographerUrl={itemSelected.photographerUrl}
+            photoUrl={itemSelected.photoUrl}
+          />
+        ) : (
+          <FrameContent
+            photographer="Stack to Content Layout Transition"
+            photographerUrl="https://tympanus.net/codrops/2022/05/11/stack-to-content-layout-transition/"
+          />
+        )}
       </div>
       <Logo />
     </div>
