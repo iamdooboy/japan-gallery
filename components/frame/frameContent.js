@@ -1,6 +1,6 @@
 import React from 'react'
 
-const frameContent = ({ photographer, photographerUrl, photoUrl }) => {
+const FrameContent = ({ photographer, photographerUrl, photoUrl }) => {
   return (
     <>
       <div className="frame__title-main">{photographer}</div>
@@ -19,7 +19,12 @@ const frameContent = ({ photographer, photographerUrl, photoUrl }) => {
       <br />
 
       {photoUrl ? (
-        <a className="frame__title-prev" href={photoUrl} target="_blank">
+        <a
+          className="frame__title-prev"
+          href={photoUrl}
+          target="_blank"
+          rel="noreferrer"
+        >
           Image Source
         </a>
       ) : (
@@ -27,6 +32,7 @@ const frameContent = ({ photographer, photographerUrl, photoUrl }) => {
           className="frame__title-prev"
           href="https://github.com/codrops/ContentLayoutTransition/"
           target="_blank"
+          rel="noreferrer"
         >
           Original Source Code
         </a>
@@ -35,4 +41,4 @@ const frameContent = ({ photographer, photographerUrl, photoUrl }) => {
   )
 }
 
-export default frameContent
+export default FrameContent

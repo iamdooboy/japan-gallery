@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useStackItemContext } from '../../hooks/useStackItemContext'
 import { useImageContext } from '../../hooks/useImageContext'
 
-const stack = () => {
+const Stack = () => {
   const { stackItemClicked, scaleY } = useStackItemContext()
   const images = useImageContext()
 
@@ -17,38 +17,6 @@ const stack = () => {
       y: stackItemClicked ? scaleY : 0,
       transition: {
         duration: 1
-      }
-    }
-  }
-
-  const variant2 = {
-    enter: direction => {
-      return {
-        y: direction > 0 ? -101 : 101,
-        opacity: 0
-      }
-    },
-    center: {
-      zIndex: 1,
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.9
-      }
-    },
-    exit: direction => {
-      return {
-        zIndex: 0,
-        y: direction < 0 ? 101 : -101,
-        opacity: 0
-      }
-    },
-    info: {
-      zIndex: 1,
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6
       }
     }
   }
@@ -71,4 +39,4 @@ const stack = () => {
   )
 }
 
-export default stack
+export default Stack

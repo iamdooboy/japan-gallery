@@ -3,7 +3,7 @@ import Logo from '../logo/logo'
 import FrameContent from './frameContent'
 import { useStackItemContext } from '../../hooks/useStackItemContext'
 
-const frame = () => {
+const Frame = () => {
   const { itemSelected, stackItemClicked } = useStackItemContext()
 
   return (
@@ -28,4 +28,4 @@ const frame = () => {
   )
 }
 
-export default frame
+export default Frame

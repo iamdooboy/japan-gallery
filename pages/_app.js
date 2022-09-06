@@ -1,4 +1,3 @@
-import { ChakraProvider } from '@chakra-ui/react'
 import '../styles/styles.css'
 
 const Website = ({ Component, pageProps, router }) => {

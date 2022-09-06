@@ -5,7 +5,7 @@ import ScrollButtons from './scrollButtons'
 import { useStackItemContext } from '../../hooks/useStackItemContext'
 import { useImageContext } from '../../hooks/useImageContext'
 
-const content = () => {
+const Content = () => {
   const images = useImageContext()
   const { stackItemClicked } = useStackItemContext()
   const open = stackItemClicked ? ' content--open' : ''
@@ -28,4 +28,4 @@ const content = () => {
   )
 }
 
-export default content
+export default Content

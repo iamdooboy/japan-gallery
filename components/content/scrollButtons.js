@@ -2,7 +2,7 @@ import { images } from '../images/images'
 import { motion } from 'framer-motion'
 import { useStackItemContext } from '../../hooks/useStackItemContext'
 
-const scrollButtons = () => {
+const ScrollButtons = () => {
   const {
     itemSelected,
     setItemSelected,
@@ -112,4 +112,4 @@ const scrollButtons = () => {
   )
 }
 
-export default scrollButtons
+export default ScrollButtons

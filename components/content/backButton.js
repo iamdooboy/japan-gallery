@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useStackItemContext } from '../../hooks/useStackItemContext'
 
-const backButton = () => {
+const BackButton = () => {
   const { setItemSelected, stackItemClicked, setStackItemClicked, setScaleY } =
     useStackItemContext()
 
@@ -52,4 +52,4 @@ const backButton = () => {
   )
 }
 
-export default backButton
+export default BackButton

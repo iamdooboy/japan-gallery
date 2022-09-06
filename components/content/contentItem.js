@@ -2,7 +2,7 @@ import React from 'react'
 import { useStackItemContext } from '../../hooks/useStackItemContext'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const contentItem = ({ id, title1, title2, whenAndWhere, description }) => {
+const ContentItem = ({ id, title1, title2, whenAndWhere, description }) => {
   const { itemSelected, direction, page } = useStackItemContext()
 
   const currentItem = itemSelected.id === id ? ' content__item--current' : ''
@@ -100,4 +100,4 @@ const contentItem = ({ id, title1, title2, whenAndWhere, description }) => {
   )
 }
 
-export default contentItem
+export default ContentItem

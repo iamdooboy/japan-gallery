@@ -2,7 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { useStackItemContext } from '../../hooks/useStackItemContext'
 
-const title = () => {
+const Title = () => {
   const { stackItemClicked } = useStackItemContext()
 
   return (
@@ -33,4 +33,4 @@ const title = () => {
   )
 }
 
-export default title
+export default Title

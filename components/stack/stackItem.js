@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useStackItemContext } from '../../hooks/useStackItemContext'
 
-const stackItem = ({ img }) => {
+const StackItem = ({ img }) => {
   const {
     itemSelected,
     setItemSelected,
@@ -46,4 +46,4 @@ const stackItem = ({ img }) => {
   )
 }
 
-export default stackItem
+export default StackItem
