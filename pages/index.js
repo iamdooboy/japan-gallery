@@ -1,78 +1,26 @@
-import { useState, useEffect, createContext } from 'react'
+import { createContext } from 'react'
 import Frame from '../components/frame/frame'
 import Content from '../components/content/content'
 import Slides from '../components/slides/slides'
 import Stack from '../components/stack/stackWrap'
 import Title from '../components/title/title'
-import { images } from '../components/images/images'
-import { useWindowSize } from '../hooks/useWindowSize'
+import { StackItemProvider } from '../components/contexts/StackItemContext'
+import { ImageProvider } from '../components/contexts/ImageContext'
 
-export const StackItemContext = createContext({})
 export const ImagesContext = createContext([])
 
 const Page = () => {
-  const [imgsLoaded, setImgsLoaded] = useState(false)
-  const [itemSelected, setItemSelected] = useState('')
-  const [stackItemClicked, setStackItemClicked] = useState(false)
-  const [scaleY, setScaleY] = useState()
-  const [offsetTop, setOffsetTop] = useState(undefined)
-  const [offsetHeight, setOffsetHeight] = useState(undefined)
-  const winsize = useWindowSize()
-  const [[page, direction], setPage] = useState([0, 0])
-
-  useEffect(() => {
-    document.querySelector('body').classList.add('demo-1')
-    document.querySelector('body').classList.add('loading')
-
-    const loadImage = image => {
-      return new Promise((resolve, reject) => {
-        const loadImg = new Image()
-        loadImg.src = image.url
-        // wait 2 seconds to simulate loading time
-        loadImg.onload = () =>
-          setTimeout(() => {
-            resolve(image.url)
-          }, 2000)
-
-        loadImg.onerror = err => reject(err)
-      })
-    }
-
-    Promise.all(images.map(image => loadImage(image)))
-      .then(() => setImgsLoaded(true))
-      .catch(err => console.log('Failed to load images', err))
-
-    document.body.classList.remove('loading')
-  }, [])
-
   return (
     <>
-      <StackItemContext.Provider
-        value={{
-          stackItemClicked,
-          setStackItemClicked,
-          itemSelected,
-          setItemSelected,
-          scaleY,
-          setScaleY,
-          offsetTop,
-          setOffsetTop,
-          offsetHeight,
-          setOffsetHeight,
-          winsize,
-          direction,
-          setPage,
-          page
-        }}
-      >
-        <ImagesContext.Provider value={images}>
+      <StackItemProvider>
+        <ImageProvider>
           <Frame />
-          <Content stackItemClicked={stackItemClicked} />
+          <Content />
           <Slides />
-          <Stack images={images} />
+          <Stack />
           <Title />
-        </ImagesContext.Provider>
-      </StackItemContext.Provider>
+        </ImageProvider>
+      </StackItemProvider>
     </>
   )
 }

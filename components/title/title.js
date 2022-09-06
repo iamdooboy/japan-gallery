@@ -1,10 +1,9 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { useContext } from 'react'
-import { StackItemContext, AnimatePresence } from '../../pages'
+import { useStackItemContext } from '../../hooks/useStackItemContext'
 
 const title = () => {
-  const { stackItemClicked } = useContext(StackItemContext)
+  const { stackItemClicked } = useStackItemContext()
 
   return (
     <div className="title">

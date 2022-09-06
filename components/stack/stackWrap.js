@@ -1,9 +1,9 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import Stack from './stack'
-import { StackItemContext } from '../../pages'
+import { useStackItemContext } from '../../hooks/useStackItemContext'
 
 const stackWrap = () => {
-  const { stackItemClicked } = useContext(StackItemContext)
+  const { stackItemClicked } = useStackItemContext()
   return <div className="stack-wrap">{!stackItemClicked && <Stack />}</div>
 }
 

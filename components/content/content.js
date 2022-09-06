@@ -2,12 +2,12 @@ import React from 'react'
 import ContentItem from './contentItem'
 import BackButton from './backButton'
 import ScrollButtons from './scrollButtons'
-import { useContext } from 'react'
-import { ImagesContext } from '../../pages'
+import { useStackItemContext } from '../../hooks/useStackItemContext'
+import { useImageContext } from '../../hooks/useImageContext'
 
-const content = ({ stackItemClicked }) => {
-  const images = useContext(ImagesContext)
-
+const content = () => {
+  const images = useImageContext()
+  const { stackItemClicked } = useStackItemContext()
   const open = stackItemClicked ? ' content--open' : ''
 
   return (

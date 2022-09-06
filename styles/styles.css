@@ -162,6 +162,7 @@ a:focus-visible {
 
 .frame__title-prev {
   width: 100%;
+  text-decoration: underline;
 }
 
 .frame__logo {

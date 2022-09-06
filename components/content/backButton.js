@@ -1,10 +1,9 @@
-import { useContext } from 'react'
-import { StackItemContext } from '../../pages'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
+import { useStackItemContext } from '../../hooks/useStackItemContext'
 
 const backButton = () => {
   const { setItemSelected, stackItemClicked, setStackItemClicked, setScaleY } =
-    useContext(StackItemContext)
+    useStackItemContext()
 
   const onClickHandler = () => {
     document.querySelector('body').classList.remove('oh')

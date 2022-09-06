@@ -1,19 +1,12 @@
-import React, { useContext, useEffect } from 'react'
+import React from 'react'
 import StackItem from './stackItem'
-import { ImagesContext } from '../../pages'
-import { StackItemContext } from '../../pages'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useWindowSize } from '../../hooks/useWindowSize'
+import { useStackItemContext } from '../../hooks/useStackItemContext'
+import { useImageContext } from '../../hooks/useImageContext'
 
 const stack = () => {
-  const {
-    stackItemClicked,
-    animation,
-    setStackItemClicked,
-    setItemSelected,
-    scaleY
-  } = useContext(StackItemContext)
-  const images = useContext(ImagesContext)
+  const { stackItemClicked, scaleY } = useStackItemContext()
+  const images = useImageContext()
 
   const variants = {
     initial: {
@@ -28,6 +21,38 @@ const stack = () => {
     }
   }
 
+  const variant2 = {
+    enter: direction => {
+      return {
+        y: direction > 0 ? -101 : 101,
+        opacity: 0
+      }
+    },
+    center: {
+      zIndex: 1,
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.9
+      }
+    },
+    exit: direction => {
+      return {
+        zIndex: 0,
+        y: direction < 0 ? 101 : -101,
+        opacity: 0
+      }
+    },
+    info: {
+      zIndex: 1,
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6
+      }
+    }
+  }
+
   return (
     <AnimatePresence>
       <motion.div
@@ -36,12 +61,11 @@ const stack = () => {
         initial="initial"
         animate="shift"
       >
-        <div className="stack__item stack__item--empty"></div>
+        <div className="stack__item stack__item--empty" />
         {images.map(img => (
           <StackItem key={img.id} img={img} />
         ))}
-
-        <div className="stack__item stack__item--empty"></div>
+        <div className="stack__item stack__item--empty" />
       </motion.div>
     </AnimatePresence>
   )

@@ -1,10 +1,10 @@
-import React, { useContext } from 'react'
-import { StackItemContext } from '../../pages'
+import React from 'react'
+import { useStackItemContext } from '../../hooks/useStackItemContext'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const contentItem = ({ id, title1, title2, whenAndWhere, description }) => {
-  const { itemSelected, stackItemClicked, direction, page } =
-    useContext(StackItemContext)
+  const { itemSelected, direction, page } = useStackItemContext()
+
   const currentItem = itemSelected.id === id ? ' content__item--current' : ''
 
   const variants = {
@@ -28,33 +28,16 @@ const contentItem = ({ id, title1, title2, whenAndWhere, description }) => {
         y: direction < 0 ? 101 : -101,
         opacity: 0
       }
-    }
-  }
-
-  const variant2 = {
-    enter: direction => {
-      return {
-        y: direction > 0 ? -101 : 101,
-        opacity: 0
-      }
     },
-    center: {
+    info: {
       zIndex: 1,
       y: 0,
       opacity: 1,
       transition: {
         duration: 0.6
       }
-    },
-    exit: direction => {
-      return {
-        zIndex: 0,
-        y: direction < 0 ? 101 : -101,
-        opacity: 0
-      }
     }
   }
-
   return (
     <AnimatePresence initial={false} custom={direction}>
       <motion.div className={`content__item${currentItem}`}>
@@ -91,9 +74,9 @@ const contentItem = ({ id, title1, title2, whenAndWhere, description }) => {
             className="oh"
             key={page}
             custom={direction}
-            variants={variant2}
+            variants={variants}
             initial="enter"
-            animate="center"
+            animate="info"
             exit="exit"
           >
             <strong className="oh__inner">{whenAndWhere}</strong>

@@ -1,7 +1,6 @@
-import React, { useRef, useEffect, useContext } from 'react'
-import { StackItemContext } from '../../pages'
-import { motion, AnimatePresence } from 'framer-motion'
-import { useWindowSize } from '../../hooks/useWindowSize'
+import React, { useRef, useEffect } from 'react'
+import { motion } from 'framer-motion'
+import { useStackItemContext } from '../../hooks/useStackItemContext'
 
 const stackItem = ({ img }) => {
   const {
@@ -10,19 +9,17 @@ const stackItem = ({ img }) => {
     setStackItemClicked,
     stackItemClicked,
     setScaleY,
-    setOffsetTop,
-    setOffsetHeight,
-    scaleY,
     winsize,
     page,
-    direction,
     setPage
-  } = useContext(StackItemContext)
+  } = useStackItemContext()
 
   const ref = useRef(null)
 
   useEffect(() => {
     if (stackItemClicked && itemSelected.id === img.id) {
+      console.log(ref.current.offsetLeft)
+      console.log(ref.current.offsetTop)
       const itemCenter = ref.current.offsetTop + ref.current.offsetHeight / 2
       setScaleY(winsize.height / 2 - itemCenter + winsize.scrollY)
     }
@@ -30,11 +27,11 @@ const stackItem = ({ img }) => {
 
   const currentItem = itemSelected.id === img.id ? ' stack__item--current' : ''
 
-  const onClickHandler = e => {
+  const onClickHandler = () => {
     document.querySelector('body').classList.add('oh')
-    setPage([page + 1, 1])
     setStackItemClicked(true)
     setItemSelected(img)
+    setPage([page + 1, 1])
     document.documentElement.scrollTop = document.body.scrollTop = 0
   }
   return (

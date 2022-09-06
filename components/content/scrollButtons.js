@@ -1,8 +1,6 @@
-import { useContext } from 'react'
-import { StackItemContext } from '../../pages'
 import { images } from '../images/images'
-import { motion, useMotionValue } from 'framer-motion'
-import { useWindowSize } from '../../hooks/useWindowSize'
+import { motion } from 'framer-motion'
+import { useStackItemContext } from '../../hooks/useStackItemContext'
 
 const scrollButtons = () => {
   const {
@@ -14,7 +12,7 @@ const scrollButtons = () => {
     winsize,
     setPage,
     page
-  } = useContext(StackItemContext)
+  } = useStackItemContext()
 
   let currentIndex = images.indexOf(itemSelected)
 

@@ -1,26 +1,10 @@
-import React, { useContext } from 'react'
-import { ImagesContext } from '../../pages'
-import { StackItemContext } from '../../pages'
+import React from 'react'
 import Logo from '../logo/logo'
 import FrameContent from './frameContent'
+import { useStackItemContext } from '../../hooks/useStackItemContext'
 
 const frame = () => {
-  const images = useContext(ImagesContext)
-
-  const {
-    itemSelected,
-    setItemSelected,
-    setStackItemClicked,
-    stackItemClicked,
-    setScaleY,
-    setOffsetTop,
-    setOffsetHeight,
-    scaleY,
-    winsize,
-    page,
-    direction,
-    setPage
-  } = useContext(StackItemContext)
+  const { itemSelected, stackItemClicked } = useStackItemContext()
 
   return (
     <div className="frame">
