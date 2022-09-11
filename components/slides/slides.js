@@ -3,8 +3,9 @@ import Stack from '../stack/stack'
 import { useStackItemContext } from '../../hooks/useStackItemContext'
 
 const Slides = () => {
-  const { itemSelected } = useStackItemContext()
-  return <div className="slides">{itemSelected && <Stack />}</div>
+  const { stackItemSelected } = useStackItemContext()
+
+  return <div className="slides">{stackItemSelected.selected && <Stack />}</div>
 }
 
 export default Slides

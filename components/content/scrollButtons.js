@@ -4,9 +4,8 @@ import { useStackItemContext } from '../../hooks/useStackItemContext'
 
 const ScrollButtons = () => {
   const {
-    itemSelected,
-    setItemSelected,
-    stackItemClicked,
+    stackItemSelected,
+    setStackItemSelected,
     scaleY,
     setScaleY,
     winsize,
@@ -14,7 +13,7 @@ const ScrollButtons = () => {
     page
   } = useStackItemContext()
 
-  let currentIndex = images.indexOf(itemSelected)
+  let currentIndex = images.indexOf(stackItemSelected.item)
 
   const navigate = direction => {
     if (
@@ -35,14 +34,15 @@ const ScrollButtons = () => {
 
     currentIndex = direction === 'next' ? currentIndex + 1 : currentIndex - 1
     const upcomingItem = images[currentIndex]
-    setItemSelected(upcomingItem)
+    setStackItemSelected(state => ({ ...state, item: upcomingItem }))
   }
 
   const nextVariant = {
     visible: {
-      opacity: stackItemClicked && currentIndex < images.length - 1 ? 1 : 0,
+      opacity:
+        stackItemSelected.selected && currentIndex < images.length - 1 ? 1 : 0,
       cursor: currentIndex < images.length - 1 ? 'pointer' : 'default',
-      y: stackItemClicked ? 0 : 150,
+      y: stackItemSelected.selected ? 0 : 150,
       transition: {
         duration: 1
       }
@@ -59,9 +59,9 @@ const ScrollButtons = () => {
 
   const prevVariant = {
     visible: {
-      opacity: stackItemClicked && currentIndex > 0 ? 1 : 0,
+      opacity: stackItemSelected.selected && currentIndex > 0 ? 1 : 0,
       cursor: currentIndex > 0 ? 'pointer' : 'default',
-      y: stackItemClicked ? 0 : -150,
+      y: stackItemSelected.selected ? 0 : -150,
       transition: {
         duration: 1
       }

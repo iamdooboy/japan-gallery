@@ -4,27 +4,22 @@ import { useWindowSize } from '../../hooks/useWindowSize'
 export const StackItemContext = createContext({})
 
 export const StackItemProvider = ({ children }) => {
-  const [itemSelected, setItemSelected] = useState('')
-  const [stackItemClicked, setStackItemClicked] = useState(false)
-  const [scaleY, setScaleY] = useState()
-  const [offsetTop, setOffsetTop] = useState(undefined)
-  const [offsetHeight, setOffsetHeight] = useState(undefined)
-  const winsize = useWindowSize()
+  const [scaleY, setScaleY] = useState(0)
   const [[page, direction], setPage] = useState([0, 0])
+  const winsize = useWindowSize()
+
+  const [stackItemSelected, setStackItemSelected] = useState({
+    item: '',
+    selected: false
+  })
 
   return (
     <StackItemContext.Provider
       value={{
-        stackItemClicked,
-        setStackItemClicked,
-        itemSelected,
-        setItemSelected,
+        stackItemSelected,
+        setStackItemSelected,
         scaleY,
         setScaleY,
-        offsetTop,
-        setOffsetTop,
-        offsetHeight,
-        setOffsetHeight,
         winsize,
         direction,
         setPage,

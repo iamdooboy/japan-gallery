@@ -4,10 +4,8 @@ import { useStackItemContext } from '../../hooks/useStackItemContext'
 
 const StackItem = ({ img }) => {
   const {
-    itemSelected,
-    setItemSelected,
-    setStackItemClicked,
-    stackItemClicked,
+    stackItemSelected,
+    setStackItemSelected,
     setScaleY,
     winsize,
     page,
@@ -17,25 +15,25 @@ const StackItem = ({ img }) => {
   const ref = useRef(null)
 
   useEffect(() => {
-    if (stackItemClicked && itemSelected.id === img.id) {
-      console.log(ref.current.offsetLeft)
-      console.log(ref.current.offsetTop)
+    if (stackItemSelected.selected && stackItemSelected.item.id === img.id) {
       const itemCenter = ref.current.offsetTop + ref.current.offsetHeight / 2
       setScaleY(winsize.height / 2 - itemCenter + winsize.scrollY)
     }
-  }, [stackItemClicked])
+  }, [stackItemSelected.selected])
 
-  const currentItem = itemSelected.id === img.id ? ' stack__item--current' : ''
+  const currentItem =
+    stackItemSelected.item.id === img.id ? ' stack__item--current' : ''
 
   const onClickHandler = () => {
     document.querySelector('body').classList.add('oh')
-    setStackItemClicked(true)
-    setItemSelected(img)
+    setStackItemSelected({ item: img, selected: true })
     setPage([page + 1, 1])
-    document.documentElement.scrollTop = document.body.scrollTop = 0
+    //windowdocument.documentElement.scrollTop = document.body.scrollTop = 0
+    window.scrollTo(0, 0)
   }
   return (
     <motion.div
+      initial="false"
       ref={ref}
       onClick={onClickHandler}
       className={`stack__item${currentItem}`}

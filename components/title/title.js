@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { useStackItemContext } from '../../hooks/useStackItemContext'
 
 const Title = () => {
-  const { stackItemClicked } = useStackItemContext()
+  const { stackItemSelected } = useStackItemContext()
 
   return (
     <div className="title">
@@ -11,8 +11,8 @@ const Title = () => {
         className="title__main oh"
         initial={{ opacity: 1, y: 0 }}
         animate={{
-          opacity: stackItemClicked ? 0 : 1,
-          y: stackItemClicked ? '-101%' : 0,
+          opacity: stackItemSelected.selected ? 0 : 1,
+          y: stackItemSelected.selected ? '-101%' : 0,
           transition: { duration: 0.9 }
         }}
       >
@@ -22,8 +22,8 @@ const Title = () => {
         className="title__sub oh"
         initial={{ opacity: 1, y: 0 }}
         animate={{
-          opacity: stackItemClicked ? 0 : 1,
-          y: stackItemClicked ? '-101%' : 0,
+          opacity: stackItemSelected.selected ? 0 : 1,
+          y: stackItemSelected.selected ? '-101%' : 0,
           transition: { duration: 0.9 }
         }}
       >

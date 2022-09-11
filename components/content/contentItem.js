@@ -3,9 +3,10 @@ import { useStackItemContext } from '../../hooks/useStackItemContext'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const ContentItem = ({ id, title1, title2, whenAndWhere, description }) => {
-  const { itemSelected, direction, page } = useStackItemContext()
+  const { stackItemSelected, direction, page } = useStackItemContext()
 
-  const currentItem = itemSelected.id === id ? ' content__item--current' : ''
+  const currentItem =
+    stackItemSelected.item.id === id ? ' content__item--current' : ''
 
   const variants = {
     enter: direction => {

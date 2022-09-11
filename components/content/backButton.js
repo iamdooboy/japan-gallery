@@ -2,20 +2,19 @@ import { motion } from 'framer-motion'
 import { useStackItemContext } from '../../hooks/useStackItemContext'
 
 const BackButton = () => {
-  const { setItemSelected, stackItemClicked, setStackItemClicked, setScaleY } =
+  const { stackItemSelected, setStackItemSelected, setScaleY } =
     useStackItemContext()
 
   const onClickHandler = () => {
     document.querySelector('body').classList.remove('oh')
-    setStackItemClicked(false)
-    setItemSelected('')
+    setStackItemSelected({ item: '', selected: false })
     setScaleY(0)
   }
 
   const variants = {
     visible: {
-      opacity: stackItemClicked ? 1 : 0,
-      x: stackItemClicked ? 0 : -25,
+      opacity: stackItemSelected.selected ? 1 : 0,
+      x: stackItemSelected.selected ? 0 : -25,
       transition: {
         duration: 0.5
       }

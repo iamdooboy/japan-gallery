@@ -4,17 +4,17 @@ import FrameContent from './frameContent'
 import { useStackItemContext } from '../../hooks/useStackItemContext'
 
 const Frame = () => {
-  const { itemSelected, stackItemClicked } = useStackItemContext()
+  const { stackItemSelected } = useStackItemContext()
 
   return (
     <div className="frame">
       <div className="frame__title">
-        {stackItemClicked ? (
+        {stackItemSelected.selected ? (
           <FrameContent
-            key={itemSelected.id}
-            photographer={`Photo by ${itemSelected.photographer}`}
-            photographerUrl={itemSelected.photographerUrl}
-            photoUrl={itemSelected.photoUrl}
+            key={stackItemSelected.item.id}
+            photographer={`Photo by ${stackItemSelected.item.photographer}`}
+            photographerUrl={stackItemSelected.item.photographerUrl}
+            photoUrl={stackItemSelected.item.photoUrl}
           />
         ) : (
           <FrameContent

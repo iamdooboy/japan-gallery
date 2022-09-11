@@ -3,8 +3,10 @@ import Stack from './stack'
 import { useStackItemContext } from '../../hooks/useStackItemContext'
 
 const StackWrap = () => {
-  const { stackItemClicked } = useStackItemContext()
-  return <div className="stack-wrap">{!stackItemClicked && <Stack />}</div>
+  const { stackItemSelected } = useStackItemContext()
+  return (
+    <div className="stack-wrap">{!stackItemSelected.selected && <Stack />}</div>
+  )
 }
 
 export default StackWrap

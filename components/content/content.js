@@ -7,8 +7,8 @@ import { useImageContext } from '../../hooks/useImageContext'
 
 const Content = () => {
   const images = useImageContext()
-  const { stackItemClicked } = useStackItemContext()
-  const open = stackItemClicked ? ' content--open' : ''
+  const { stackItemSelected } = useStackItemContext()
+  const open = stackItemSelected.selected ? ' content--open' : ''
 
   return (
     <div className={`content${open}`}>

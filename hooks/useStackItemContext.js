@@ -3,16 +3,10 @@ import { StackItemContext } from '../components/contexts/StackItemContext'
 
 export const useStackItemContext = () => {
   const {
-    stackItemClicked,
-    setStackItemClicked,
-    itemSelected,
-    setItemSelected,
+    stackItemSelected,
+    setStackItemSelected,
     scaleY,
     setScaleY,
-    offsetTop,
-    setOffsetTop,
-    offsetHeight,
-    setOffsetHeight,
     winsize,
     direction,
     setPage,
@@ -20,16 +14,10 @@ export const useStackItemContext = () => {
   } = useContext(StackItemContext)
 
   return {
-    stackItemClicked,
-    setStackItemClicked,
-    itemSelected,
-    setItemSelected,
+    stackItemSelected,
+    setStackItemSelected,
     scaleY,
     setScaleY,
-    offsetTop,
-    setOffsetTop,
-    offsetHeight,
-    setOffsetHeight,
     winsize,
     direction,
     setPage,

@@ -5,29 +5,22 @@ import { useStackItemContext } from '../../hooks/useStackItemContext'
 import { useImageContext } from '../../hooks/useImageContext'
 
 const Stack = () => {
-  const { stackItemClicked, scaleY } = useStackItemContext()
+  const { scaleY } = useStackItemContext()
   const images = useImageContext()
-
-  const variants = {
-    initial: {
-      opacity: 1,
-      y: 0
-    },
-    shift: {
-      y: stackItemClicked ? scaleY : 0,
-      transition: {
-        duration: 1
-      }
-    }
-  }
 
   return (
     <AnimatePresence>
       <motion.div
+        layout
+        layoutId="animation"
         className="stack"
-        variants={variants}
-        initial="initial"
-        animate="shift"
+        animate={{ y: scaleY }}
+        transition={{
+          type: 'spring',
+          bounce: 0,
+          ease: [0.6, 0.01, -0.05, 0.9],
+          duration: 1.4
+        }}
       >
         <div className="stack__item stack__item--empty" />
         {images.map(img => (
